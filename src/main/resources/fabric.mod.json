@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "execute",
+  "version": "${version}",
+
+  "name": "Execute",
+  "description": "This is an example description! Tell everyone what your mod is about!",
+  "authors": [
+    "Majeek"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/execute/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "me.majeek.execute.ExecuteMod"
+    ]
+  },
+  "mixins": [
+    "execute.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.14.11",
+    "fabric": "*",
+    "minecraft": "1.18.2",
+    "java": ">=17"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
