@@ -1,7 +1,7 @@
 package me.majeek.execute.module;
 
-import me.majeek.execute.ExecuteMod;
 import me.majeek.execute.event.listeners.KeyPressListener;
+import net.minecraft.client.MinecraftClient;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Collection;
@@ -45,7 +45,7 @@ public class ModuleManager implements KeyPressListener {
 
     @Override
     public void onKeyPress(KeyPressEvent event) {
-        if(ExecuteMod.CLIENT.player != null && event.getAction() == 1) {
+        if(MinecraftClient.getInstance().player != null && event.getAction() == 1) {
             for (Module module : this.getModules()) {
                 if (module.getKeyCode() == event.getKeyCode()) {
                     module.toggle();

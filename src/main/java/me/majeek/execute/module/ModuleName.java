@@ -4,7 +4,8 @@ import org.jetbrains.annotations.NotNull;
 
 public enum ModuleName {
     FLIGHT("Flight"),
-    NO_FALL("NoFall");
+    NO_FALL("NoFall"),
+    SPRINT("Sprint");
 
     @NotNull private final String name;
 

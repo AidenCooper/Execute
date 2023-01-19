@@ -12,22 +12,22 @@ public interface PlayerMoveListener extends Listener {
     void onPlayerMove(PlayerMoveEvent event);
 
     class PlayerMoveEvent extends Event<PlayerMoveListener> {
-        @NotNull private final MovementType type;
-        @NotNull private final Vec3d offset;
+        @NotNull private final Vec3d from;
+        @NotNull private final Vec3d to;
 
-        public PlayerMoveEvent(@NotNull final MovementType type, @NotNull Vec3d offset) {
-            this.type = type;
-            this.offset = offset;
+        public PlayerMoveEvent(@NotNull final Vec3d from, @NotNull final Vec3d to) {
+            this.from = from;
+            this.to = to;
         }
 
         @NotNull
-        public MovementType getType() {
-            return this.type;
+        public Vec3d getFrom() {
+            return this.from;
         }
 
         @NotNull
-        public Vec3d getOffset() {
-            return this.offset;
+        public Vec3d getTo() {
+            return this.to;
         }
 
         @Override
