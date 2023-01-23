@@ -8,6 +8,7 @@
     "ClientConnectionMixin",
     "ClientPlayerEntityMixin",
     "ClientPlayNetworkHandlerMixin",
+    "InGameHudMixin",
     "KeyboardMixin"
   ],
   "injectors": {

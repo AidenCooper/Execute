@@ -13,18 +13,18 @@ public class ModuleManager implements KeyPressListener {
     @NotNull private final Set<Module> modules = new HashSet<>();
 
     @NotNull
-    public Set<Module> getModules() {
-        return this.modules;
+    public Set<Module> getModules(final boolean showHidden) {
+        return showHidden ? this.modules : this.modules.stream().filter(module -> !module.isHidden()).collect(Collectors.toSet());
     }
 
     @NotNull
-    public Set<Module> getEnabledModules() {
-        return this.getModules().stream().filter(Module::isToggled).collect(Collectors.toSet());
+    public Set<Module> getEnabledModules(final boolean showHidden) {
+        return this.getModules(showHidden).stream().filter(Module::isToggled).collect(Collectors.toSet());
     }
 
     @NotNull
-    public Set<Module> getDisabledModules() {
-        return this.getModules().stream().filter(module -> !module.isToggled()).collect(Collectors.toSet());
+    public Set<Module> getDisabledModules(final boolean showHidden) {
+        return this.getModules(showHidden).stream().filter(module -> !module.isToggled()).collect(Collectors.toSet());
     }
 
     public void add(@NotNull final Module module) {
@@ -46,7 +46,7 @@ public class ModuleManager implements KeyPressListener {
     @Override
     public void onKeyPress(KeyPressEvent event) {
         if(MinecraftClient.getInstance().player != null && event.getAction() == 1) {
-            for (Module module : this.getModules()) {
+            for (Module module : this.getModules(true)) {
                 if (module.getKeyCode() == event.getKeyCode()) {
                     module.toggle();
                 }

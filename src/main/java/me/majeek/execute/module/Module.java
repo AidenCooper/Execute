@@ -3,16 +3,20 @@ package me.majeek.execute.module;
 import me.majeek.execute.ExecuteMod;
 import me.majeek.execute.event.EventManager;
 import me.majeek.execute.event.listeners.ModuleToggleListener;
+import net.minecraft.client.MinecraftClient;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
 public class Module {
+    @NotNull protected final static MinecraftClient CLIENT = MinecraftClient.getInstance();
+
     @NotNull private final ModuleName name;
     private int keyCode;
     @NotNull private final ModuleType type;
 
     private boolean toggled;
+    private boolean hidden;
 
     public Module(@NotNull final ModuleName name, final int keyCode, @NotNull final ModuleType type) {
         this.name = name;
@@ -20,6 +24,7 @@ public class Module {
         this.type = type;
 
         this.toggled = false;
+        this.hidden = false;
     }
 
     @NotNull
@@ -50,6 +55,14 @@ public class Module {
 
             this.onEnable();
         }
+    }
+
+    public boolean isHidden() {
+        return this.hidden;
+    }
+
+    public void setHidden(final boolean hidden) {
+        this.hidden = hidden;
     }
 
     public void toggle() {

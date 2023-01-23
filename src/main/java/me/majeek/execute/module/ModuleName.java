@@ -4,6 +4,7 @@ import org.jetbrains.annotations.NotNull;
 
 public enum ModuleName {
     FLIGHT("Flight"),
+    HUD("Hud"),
     NO_FALL("NoFall"),
     SPRINT("Sprint");
 
